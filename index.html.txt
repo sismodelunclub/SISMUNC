@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISMUNC 2025 - Model United Nations Conference</title>
+    <!-- Load Tailwind CSS -->
+    <!-- FIXED: Removed markdown link wrapper from the URL -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <style>
+        /* FIXED: Removed markdown link wrapper from the URL */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Very light blue-gray background */
+        }
+        /* Primary color: dark red (#b02326) */
+        .mun-red-primary { background-color: #b02326; }
+        .text-mun-red-primary { color: #b02326; }
+        .border-mun-red-primary { border-color: #b02326; }
+        /* Accent color: gold (#facc15) */
+        .mun-gold { color: #facc15; }
+        /* Tertiary color: a gray tone of white (#e5e7eb) for subtle text/outlines */
+        .text-mun-gray-tertiary { color: #e5e7eb; } /* Light gray (Gray-200) */
+        .border-mun-gray-tertiary { border-color: #e5e7eb; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex-shrink-0">
+                <a href="#hero" class="text-xl font-extrabold text-mun-red-primary flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0l7 7 7 7m-15-2V7a1 1 0 011-1h3m-6 4h.01M17 10h.01"></path></svg>
+                    SISMUNC
+                </a>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-mun-red-primary transition duration-150">About</a>
+                <a href="#pillars" class="text-gray-600 hover:text-mun-red-primary transition duration-150">Why Join</a>
+                <a href="#logistics" class="text-gray-600 hover:text-mun-red-primary transition duration-150">Logistics</a>
+                <a href="#contact" class="text-gray-600 hover:text-mun-red-primary transition duration-150">Contact</a>
+            </nav>
+            <a href="#registration" class="hidden md:block px-4 py-2 border border-mun-red-primary text-mun-red-primary rounded-full hover:bg-mun-red-primary hover:text-white transition duration-300 shadow-md">
+                Register Now
+            </a>
+            <!-- Mobile Menu Button -->
+            <button id="menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-mun-red-primary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-x-0 top-16 bg-white shadow-xl z-40">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">About</a>
+            <a href="#pillars" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Why Join</a>
+            <a href="#logistics" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Logistics</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50">Contact</a>
+            <!-- Mobile Register CTA: Gold background with dark gray text for high contrast (removed red text) -->
+            <a href="#registration" class="block w-full text-center px-4 py-2 mt-2 font-bold text-gray-900 bg-mun-gold rounded-md hover:bg-yellow-500 transition duration-300">Register Now</a>
+        </div>
+    </div>
+
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative overflow-hidden pt-20 pb-28 text-white mun-red-primary">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="lg:w-3/4">
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                        <span class="block">SIS Model United Nations</span>
+                        <span class="block text-mun-gold mt-2">SISMUNC 2025</span>
+                    </h1>
+                    <p class="mt-4 text-xl sm:text-2xl font-light max-w-xl">
+                        Today's readers, tomorrow's leaders
+                    </p>
+                    <!-- UPDATED CTA BUTTONS -->
+                    <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <!-- Button 1: Primary CTA (Gold Fill) -->
+                        <!-- FIXED: Removed markdown link wrapper from the URL -->
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjVb_sAB52UMulgh4v9INtwz1fJXoHiMuOBT1LHa_8NciviQ/viewform?usp=sharing&ouid=100036893314688966995" target="_blank" class="inline-flex justify-center items-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-gray-900 bg-mun-gold hover:bg-yellow-500 transition duration-300 shadow-lg transform hover:scale-105">
+                            Register Yourself for the Club
+                        </a>
+                        <!-- Button 2: Secondary CTA (Ghost button) -->
+                        <a href="#pillars" class="inline-flex justify-center items-center px-8 py-3 border border-mun-gray-tertiary text-base font-medium rounded-full text-mun-gray-tertiary hover:bg-white hover:text-mun-red-primary transition duration-300 transform hover:scale-105">
+                            Explore Why Join
+                        </a>
+                        <!-- Button 3: New Misconduct Report (Ghost button) -->
+                        <!-- FIXED: Removed markdown link wrapper from the URL -->
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdvMATeZEyXZrmkhdLYip41JERLEhJLacn85Z7wx7P3xnIO0Q/viewform?usp=sharing&ouid=114848742443164827775" target="_blank" class="inline-flex justify-center items-center px-8 py-3 border border-mun-gray-tertiary text-base font-medium rounded-full text-mun-gray-tertiary hover:bg-white hover:text-mun-red-primary transition duration-300 transform hover:scale-105">
+                            Report Misconduct
+                        </a>
+                    </div>
+                </div>
+                <!-- UPDATED ELIGIBILITY INFO HERE -->
+                <div class="mt-10 pt-4 text-lg">
+                    <p class="font-semibold text-mun-gold">Eligibility:</p>
+                    <p class="font-normal text-white max-w-sm">Only Applicable for CURRENT and EX **Siddiqui's International School** students.</p>
+                </div>
+                <!-- END UPDATED ELIGIBILITY INFO -->
+            </div>
+            <!-- Decorative wave/pattern for the red background -->
+            <div class="absolute inset-x-0 bottom-0 h-48 overflow-hidden z-0">
+                <svg class="absolute bottom-0 w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                    <path fill="#f7f9fb" fill-opacity="1" d="M0,160L48,160C96,160,192,160,288,170.7C384,181,480,203,576,186.7C672,171,768,117,864,128C960,139,1056,213,1152,240C1248,267,1344,245,1392,234.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- About/Mission Section -->
+        <section id="about" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-900 sm:text-4xl mb-12">Our Mission</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-[1.02]">
+                    <!-- Icon background uses new primary red -->
+                    <div class="mun-red-primary w-12 h-12 flex items-center justify-center mx-auto rounded-full mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.477 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.477-3-9s1.343-9 3-9m-9 9h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Global Dialogue</h3>
+                    <p class="text-gray-600">Provide a platform for young minds to engage in meaningful dialogue about critical international issues and current affairs.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-[1.02]">
+                    <!-- Icon background uses new primary red -->
+                    <div class="mun-red-primary w-12 h-12 flex items-center justify-center mx-auto rounded-full mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Leadership & Diplomacy</h3>
+                    <p class="text-gray-600">Foster leadership skills, critical thinking, and the art of diplomacy through rigorous debate and collaborative problem-solving.</p>
+                </div>
+                <div class="p-6 bg-white rounded-xl shadow-lg transform transition duration-500 hover:scale-[1.02]">
+                    <!-- Icon background uses new primary red -->
+                    <div class="mun-red-primary w-12 h-12 flex items-center justify-center mx-auto rounded-full mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Inclusivity</h3>
+                    <p class="text-gray-600">Provide a nurturing environment where every voice is heard, valued, and respected, regardless of experience level.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Four Pillars of MUN Section - REFACTORED TO QUOTES ONLY -->
+        <section id="pillars" class="py-16 sm:py-24 bg-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900 sm:text-4xl mb-12">The Four Pillars: Why You Should Join</h2>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    <!-- Pillar 1: Critical Thinking -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden p-6 hover:shadow-2xl transition duration-300">
+                        <h3 class="text-2xl font-bold text-mun-red-primary mb-4">Critical Thinking</h3>
+                        <p class="text-xl font-medium text-gray-800 mb-4 italic">
+                            "The great enemy of truth is very often not the lie... but the myth—persistent, persuasive, and unrealistic."
+                        </p>
+                        <p class="text-sm font-semibold text-mun-red-primary text-right">- John F. Kennedy</p>
+                        <div class="pt-4 mt-4 border-t border-gray-100">
+                            <p class="text-gray-600 text-sm">
+                                **Why Join?** Sharpen your analytical skills by dissecting complex global issues and crafting innovative, reality-based solutions that cut through the noise.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2: Global Voice -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden p-6 hover:shadow-2xl transition duration-300">
+                        <h3 class="text-2xl font-bold text-mun-red-primary mb-4">Global Voice</h3>
+                        <p class="text-xl font-medium text-gray-800 mb-4 italic">
+                            "Our prime purpose in this life is to help others. And if you can't help them, at least don't hurt them."
+                        </p>
+                        <p class="text-sm font-semibold text-mun-red-primary text-right">- Dalai Lama</p>
+                        <div class="pt-4 mt-4 border-t border-gray-100">
+                            <p class="text-gray-600 text-sm">
+                                **Why Join?** Learn to speak for marginalized communities and stand up for human dignity, using your voice to effect positive change globally.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3: Diplomacy & Action -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden p-6 hover:shadow-2xl transition duration-300">
+                        <h3 class="text-2xl font-bold text-mun-red-primary mb-4">Diplomacy & Action</h3>
+                        <p class="text-xl font-medium text-gray-800 mb-4 italic">
+                            "It is not the critic who counts... but the man who is actually in the arena."
+                        </p>
+                        <p class="text-sm font-semibold text-mun-red-primary text-right">- Theodore Roosevelt</p>
+                        <div class="pt-4 mt-4 border-t border-gray-100">
+                            <p class="text-gray-600 text-sm">
+                                **Why Join?** Go beyond theory and become a 'doer of deeds' by mastering negotiation and drafting resolutions that tackle the world's most pressing challenges head-on.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 4: Leadership -->
+                    <div class="bg-white rounded-xl shadow-xl overflow-hidden p-6 hover:shadow-2xl transition duration-300">
+                        <h3 class="text-2xl font-bold text-mun-red-primary mb-4">Leadership</h3>
+                        <p class="text-xl font-medium text-gray-800 mb-4 italic">
+                            "It always seems impossible until it's done."
+                        </p>
+                        <p class="text-sm font-semibold text-mun-red-primary text-right">- Nelson Mandela</p>
+                        <div class="pt-4 mt-4 border-t border-gray-100">
+                            <p class="text-gray-600 text-sm">
+                                **Why Join?** Develop the resilience, vision, and consensus-building skills required to lead impactful discussions and transform impossible-seeming goals into reality.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Logistics and Registration CTA -->
+        <section id="logistics" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- CTA box background uses new primary red -->
+            <div class="mun-red-primary rounded-xl p-10 shadow-2xl text-white flex flex-col lg:flex-row items-center justify-between">
+                <div class="mb-8 lg:mb-0 lg:w-2/3">
+                    <h2 id="registration" class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                        Club Member Registration Open!
+                    </h2>
+                    <p class="mt-4 text-lg text-gray-200">
+                        Join our Model UN club and become one of the delegates preparing for this regional conference. Develop your skills, attend training, and secure your place in the SISMUNC 2025 cohort!
+                    </p>
+                </div>
+                <div class="flex-shrink-0">
+                    <!-- Button: Gold background, Text color changed from red to dark gray for non-red, high contrast -->
+                    <!-- FIXED: Removed markdown link wrapper from the URL -->
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjVb_sAB52UMulgh4v9INtwz1fJXoHiMuOBT1LHa_8NciviQ/viewform?usp=sharing&ouid=100036893314688966995" target="_blank" class="inline-flex justify-center items-center px-10 py-4 border border-transparent text-base font-bold rounded-full text-gray-900 bg-mun-gold hover:bg-yellow-500 transition duration-300 transform hover:scale-105 shadow-xl">
+                        JOIN THE CLUB NOW
+                    </a>
+                </div>
+            </div>
+
+            <!-- Important Club Details - Replaced Dates with Club Info -->
+            <div class="mt-16 grid md:grid-cols-3 gap-8 text-center">
+                
+                <!-- Meet the SB Board -->
+                <div class="p-4 border-l-4 border-mun-red-primary">
+                    <p class="text-xl font-extrabold text-mun-red-primary">Secretariat Board</p>
+                    <p class="text-lg text-gray-600 mt-2 font-medium">Meet the student leaders driving SISMUNC 2025.</p>
+                    <!-- Link updated with ID for JS handler -->
+                    <a href="#" id="sb-profile-link" class="text-sm text-mun-red-primary hover:text-gray-700 font-semibold mt-1 inline-block underline">View Profiles</a>
+                </div>
+
+                <!-- Meet the Club Advisor -->
+                <div class="p-4 border-l-4 border-mun-red-primary">
+                    <p class="text-xl font-extrabold text-mun-red-primary">Club Advisor</p>
+                    <p class="text-lg text-gray-600 mt-2 font-medium">Get guidance and mentorship from our experienced faculty advisor.</p>
+                    <!-- Link updated with ID for JS handler -->
+                    <a href="#" id="advisor-profile-link" class="text-sm text-mun-red-primary hover:text-gray-700 font-semibold mt-1 inline-block underline">View Profile</a>
+                </div>
+                
+                <!-- Workshop and Meeting Timings -->
+                <div class="p-4 border-l-4 border-mun-red-primary">
+                    <p class="text-xl font-extrabold text-mun-red-primary">Weekly Meetings</p>
+                    <p class="text-2xl font-bold text-gray-800 mt-4">Coming Soon!</p>
+                    <p class="text-sm text-gray-500 mt-2">Check back later for workshop schedule and room details.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Footer background uses new primary red -->
+    <footer id="contact" class="mun-red-primary py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- SISMUNC -->
+                <div>
+                    <h3 class="text-xl font-bold text-mun-gold mb-4">SISMUNC</h3>
+                    <p class="text-sm text-mun-gray-tertiary">A Student-led Initiative</p>
+                    <!-- UPDATED SCHOOL NAME HERE -->
+                    <p class="text-sm text-mun-gray-tertiary mt-1">Siddiqui's International School</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold text-mun-gold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#pillars" class="text-sm text-mun-gray-tertiary hover:text-white transition duration-150">Why Join</a></li>
+                        <li><a href="#" class="text-sm text-mun-gray-tertiary hover:text-white transition duration-150">Secretariat Team</a></li>
+                        <li><a href="#logistics" class="text-sm text-mun-gray-tertiary hover:text-white transition duration-150">Conference Schedule</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-xl font-bold text-mun-gold mb-4">Get In Touch</h3>
+                    <!-- UPDATED EMAIL ADDRESS AND MAILTO LINK -->
+                    <p class="text-sm text-mun-gray-tertiary">Email: <a href="mailto:sismodelunclub@gmail.com" class="hover:underline">sismodelunclub@gmail.com</a></p>
+                    <!-- UPDATED PHONE NUMBERS - Split for readability -->
+                    <p class="text-sm text-mun-gray-tertiary">Phone: +8801877419319</p>
+                    <p class="text-sm text-mun-gray-tertiary">Phone: +8801898938458</p>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h3 class="text-xl font-bold text-mun-gold mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <!-- Updated Instagram Link -->
+                        <!-- FIXED: Removed markdown link wrapper from the URL -->
+                        <a href="https://www.instagram.com/sismunc/" class="text-mun-gray-tertiary hover:text-white transition duration-150" target="_blank" rel="noopener noreferrer">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 5.625c0-2.278 1.85-4.125 4.125-4.125h.75c2.278 0 4.125 1.847 4.125 4.125v.75c0 2.278-1.847 4.125-4.125 4.125h-.75c-2.278 0-4.125-1.847-4.125-4.125v-.75Z"/><path fill-rule="evenodd" d="M16.59 13.5H7.41c-2.455 0-4.455 2.001-4.455 4.455v.69C2.955 20.353 5.483 22.5 8.243 22.5h7.514c2.76 0 5.29-2.147 5.29-4.355v-.69c0-2.454-1.999-4.455-4.455-4.455Z" clip-rule="evenodd"/></svg>
+                        </a>
+                        <!-- Placeholder for Facebook Icon -->
+                        <a href="#" class="text-mun-gray-tertiary hover:text-white transition duration-150">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm3.308 10.372h-1.823v5.18h-2.333v-5.18H9.375v-1.98h1.777V8.586c0-1.206.734-1.868 1.838-1.868.525 0 1.05.097 1.2.14v1.597h-.947c-.57 0-.68.271-.68.667v.88H15.3l-.248 1.98z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-mun-gray-tertiary text-center">
+                <p class="text-sm text-mun-gray-tertiary">&copy; 2025 SISMUNC. All Rights Reserved. | Hosted with Pride.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Message Modal (Hidden by Default) -->
+    <div id="message-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-[9999] hidden" aria-modal="true" role="dialog">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all">
+            <h3 class="text-xl font-bold text-mun-red-primary mb-4">Content Update</h3>
+            <p class="text-gray-700 text-lg">Content to be uploaded soon.</p>
+            <div class="mt-6 text-right">
+                <button id="close-modal-button" class="px-4 py-2 bg-mun-red-primary text-white rounded-full hover:bg-red-700 transition duration-300 shadow-md">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            const isExpanded = mobileMenu.classList.contains('hidden');
+            if (isExpanded) {
+                mobileMenu.classList.remove('hidden');
+                menuButton.setAttribute('aria-expanded', 'true');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuButton.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+
+        // --- Message Modal Logic ---
+        const sbLink = document.getElementById('sb-profile-link');
+        const advisorLink = document.getElementById('advisor-profile-link');
+        const modal = document.getElementById('message-modal');
+        const closeModalButton = document.getElementById('close-modal-button');
+
+        // Function to display the modal
+        function showModal(event) {
+            // Prevent the browser from trying to navigate to '#'
+            event.preventDefault();
+            modal.classList.remove('hidden');
+        }
+
+        // Function to hide the modal
+        function hideModal() {
+            modal.classList.add('hidden');
+        }
+
+        // Event listeners for the profile links
+        sbLink.addEventListener('click', showModal);
+        advisorLink.addEventListener('click', showModal);
+        
+        // Event listener for the close button
+        closeModalButton.addEventListener('click', hideModal);
+
+        // Event listener to close the modal if clicking the dimmed background
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+        
+    </script>
+</body>
+</html>
