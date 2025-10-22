@@ -320,9 +320,9 @@
 
     <!-- Message Modal (Hidden by Default) -->
     <div id="message-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-[9999] hidden" aria-modal="true" role="dialog">
-        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all">
-            <h3 class="text-xl font-bold text-mun-red-primary mb-4">Content Update</h3>
-            <p class="text-gray-700 text-lg">Content to be uploaded soon.</p>
+       <div id="modal-content-container" class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all">
+            <!-- This is where the image, name, and bio will be dynamically injected by JavaScript -->
+            
             <div class="mt-6 text-right">
                 <button id="close-modal-button" class="px-4 py-2 bg-mun-red-primary text-white rounded-full hover:bg-red-700 transition duration-300 shadow-md">
                     Close
@@ -357,17 +357,56 @@
 
 
         // --- Message Modal Logic ---
+       // --- Message Modal Logic ---
         const sbLink = document.getElementById('sb-profile-link');
         const advisorLink = document.getElementById('advisor-profile-link');
         const modal = document.getElementById('message-modal');
         const closeModalButton = document.getElementById('close-modal-button');
+        const modalContainer = document.getElementById('modal-content-container');
+
+        // --- CUSTOMIZE THIS CONTENT ---
+        // 1. You MUST upload the image (e.g., advisor.jpg) to your GitHub repo
+        // 2. Then get the "Raw" URL for that image.
+        const advisorImageURL = "https://placehold.co/150x150/b02326/ffffff?text=Advisor+Pic"; // <-- REPLACE WITH YOUR IMAGE URL
+        const advisorName = "Ms. Sarah Rahman"; // <-- REPLACE WITH ADVISOR NAME
+        const advisorTitle = "Faculty Advisor, MUN Club"; // <-- REPLACE WITH ADVISOR TITLE
+        const advisorBio = "Ms. Rahman has mentored the SIS Model UN team for five years, leading them to multiple regional awards. She believes that diplomacy is the most crucial skill a student can develop for future success."; // <-- REPLACE WITH YOUR BIOGRAPHY
+        // --- END CUSTOMIZE ---
+
 
         // Function to display the modal
         function showModal(event) {
-            // Prevent the browser from trying to navigate to '#'
             event.preventDefault();
+            
+            // Clear previous content (only the content above the close button)
+            let contentToSet = '';
+
+            // Check which link was clicked using event.currentTarget
+            if (event.currentTarget.id === 'advisor-profile-link') {
+                // 1. Set the profile content for the Advisor
+                contentToSet = `
+                    <div class="flex flex-col items-center text-center">
+                        <img src="${advisorImageURL}" onerror="this.onerror=null; this.src='https://placehold.co/150x150/b02326/ffffff?text=Image+Error';" alt="${advisorName} Profile" class="w-32 h-32 object-cover rounded-full mb-4 border-4 border-mun-red-primary shadow-lg" />
+                        <h3 class="text-2xl font-bold text-mun-red-primary mb-1">${advisorName}</h3>
+                        <p class="text-md font-semibold text-gray-600 mb-4">${advisorTitle}</p>
+                        <p class="text-gray-700 text-base text-left">${advisorBio}</p>
+                    </div>
+                `;
+            } else if (event.currentTarget.id === 'sb-profile-link') {
+                // 2. Keep the generic content for the Secretariat Board
+                contentToSet = `
+                    <h3 class="text-xl font-bold text-mun-red-primary mb-4">Secretariat Profiles</h3>
+                    <p class="text-gray-700 text-lg">The student leader profiles for the Secretariat Board are coming soon. Check back shortly!</p>
+                `;
+            }
+            
+            // Inject the content, keeping the close button intact
+            // We use insertAdjacentHTML to place the content right before the close button div
+            modalContainer.querySelector('.mt-6').previousElementSibling.innerHTML = contentToSet;
+            
             modal.classList.remove('hidden');
         }
+
 
         // Function to hide the modal
         function hideModal() {
@@ -391,4 +430,5 @@
     </script>
 </body>
 </html>
+
 
