@@ -361,19 +361,16 @@
         const modalContentArea = document.getElementById('modal-content-area'); 
 
         // =========================================================================
-        // !!! 📢 ACTION REQUIRED: CUSTOMIZE THESE VARIABLES !!!
+        // ADVISOR PROFILE DATA
         // =========================================================================
-        // 1. You MUST replace this link with the RAW, direct URL to your uploaded image.
         const advisorImageURL = "https://raw.githubusercontent.com/sismodelunclub/SISMUNC/refs/heads/main/advisor.jpg"; 
-        
-        // 2. Replace with the Advisor's Name
         const advisorName = "Afridah Ishrat Shahrin"; 
-        
-        // 3. Replace with the Advisor's Title/Role
         const advisorTitle = "Club Advisor"; 
-        
-        // 4. Replace with the full biography (Keep it inside the quotation marks)
         const advisorBio = "The SIS Model UN Club is proud to welcome Afridah Ishrat Shahrin as its Club Advisor. A dedicated scholar from the Bangladesh University of Professionals (BUP), Ms. Shahrin has spent years mastering the mechanics of Model UN at its highest levels. Her impressive list of credentials includes multiple tenures as Director and Vice Chair for over twenty national conferences, showcasing mastery across diverse mandates from UNHRC to ECOFIN and the CTBTO. Her appointment signals a shift to a results-driven environment. She will leverage her comprehensive strategic insight to guide the club, ensuring every decision, every policy, and every conference is executed with formidable expertise."; 
+        
+        // DEBUG: Log the data to confirm it's loaded in the environment
+        console.log("Advisor Data Loaded:", { name: advisorName, title: advisorTitle, image: advisorImageURL });
+
         // =========================================================================
 
         // Function to display the modal
@@ -384,7 +381,7 @@
 
             // Check which link was clicked
             if (event.currentTarget.id === 'advisor-profile-link') {
-                // 1. Set the detailed profile content for the Advisor
+                // Set the detailed profile content for the Advisor
                 contentToSet = `
                     <div class="flex flex-col items-center text-center px-2 py-4">
                         <img src="${advisorImageURL}" 
@@ -397,7 +394,7 @@
                     </div>
                 `;
             } else if (event.currentTarget.id === 'sb-profile-link') {
-                // 2. Generic "coming soon" content for the Secretariat Board
+                // Generic "coming soon" content for the Secretariat Board
                 contentToSet = `
                     <h3 class="text-xl font-bold text-mun-red-primary mb-4">Secretariat Profiles</h3>
                     <p class="text-gray-700 text-lg">The student leader profiles for the Secretariat Board are coming soon. Check back shortly!</p>
@@ -435,6 +432,7 @@
     </script>
 </body>
 </html>
+
 
 
 
