@@ -22,6 +22,12 @@
         /* Tertiary color: a gray tone of white (#e5e7eb) for subtle text/outlines */
         .text-mun-gray-tertiary { color: #e5e7eb; } /* Light gray (Gray-200) */
         .border-mun-gray-tertiary { border-color: #e5e7eb; }
+
+        /* Custom style to make the modal content scrollable */
+        .modal-scroll-content {
+            max-height: 80vh; /* Maximum height for the scroll area */
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -225,26 +231,42 @@
                 </div>
             </div>
 
-            <!-- Important Club Details - Replaced Dates with Club Info -->
-            <div class="mt-16 grid md:grid-cols-3 gap-8 text-center">
+            <!-- Important Club Details - Changed to a 4-column layout for large screens -->
+            <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
                 
-                <!-- Meet the SB Board -->
+                <!-- 1. Meet the SB Board (Opens Modal) -->
                 <div class="p-4 border-l-4 border-mun-red-primary">
                     <p class="text-xl font-extrabold text-mun-red-primary">Secretariat Board</p>
                     <p class="text-lg text-gray-600 mt-2 font-medium">Meet the student leaders driving SISMUNC 2025.</p>
-                    <!-- Link updated with ID for JS handler -->
                     <a href="#" id="sb-profile-link" class="text-sm text-mun-red-primary hover:text-gray-700 font-semibold mt-1 inline-block underline">View Profiles</a>
                 </div>
 
-                <!-- Meet the Club Advisor -->
+                <!-- 2. Meet the Club Advisor (Opens Modal) -->
                 <div class="p-4 border-l-4 border-mun-red-primary">
                     <p class="text-xl font-extrabold text-mun-red-primary">Club Advisor</p>
                     <p class="text-lg text-gray-600 mt-2 font-medium">Get guidance and mentorship from our experienced faculty advisor.</p>
-                    <!-- Link updated with ID for JS handler -->
                     <a href="#" id="advisor-profile-link" class="text-sm text-mun-red-primary hover:text-gray-700 font-semibold mt-1 inline-block underline">View Profile</a>
                 </div>
                 
-                <!-- Workshop and Meeting Timings -->
+                <!-- 3. Official Documents (External Links to PDFs) -->
+                <div class="p-4 border-l-4 border-mun-red-primary">
+                    <p class="text-xl font-extrabold text-mun-red-primary">Official Documents</p>
+                    <p class="text-lg text-gray-600 mt-2 font-medium">Review the governance charter and ethical guidelines.</p>
+                    <div class="flex flex-col items-center mt-1 space-y-1">
+                         <!-- Direct link to raw PDF content, opens in new tab -->
+                         <a href="https://raw.githubusercontent.com/sismodelunclub/SISMUNC/main/SISMUNC-Delegate-Equity-Board-Code-of-Conduct.pdf" target="_blank" class="text-sm text-mun-red-primary hover:text-gray-700 font-semibold underline flex items-center">
+                            Code of Conduct
+                            <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                         </a>
+                         <!-- Direct link to raw PDF content, opens in new tab -->
+                         <a href="https://raw.githubusercontent.com/sismodelunclub/SISMUNC/main/SISMUNC%20Club%20Charter%20and%20Internal%20Governance%20Document%20(2).pdf" target="_blank" class="text-sm text-mun-red-primary hover:text-gray-700 font-semibold underline flex items-center">
+                            Club Charter
+                             <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                         </a>
+                    </div>
+                </div>
+
+                <!-- 4. Workshop and Meeting Timings -->
                 <div class="p-4 border-l-4 border-mun-red-primary">
                     <p class="text-xl font-extrabold text-mun-red-primary">Weekly Meetings</p>
                     <p class="text-2xl font-bold text-gray-800 mt-4">Coming Soon!</p>
@@ -314,7 +336,7 @@
 
     <!-- Message Modal (Hidden by Default) -->
     <div id="message-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-[9999] hidden" aria-modal="true" role="dialog">
-        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-sm w-full transform transition-all">
+        <div class="bg-white p-6 rounded-xl shadow-2xl max-w-lg w-full transform transition-all modal-scroll-content">
             <!-- This DIV will hold the dynamically created content -->
             <div id="modal-content-area">
                 <!-- Content will be injected here -->
@@ -353,36 +375,46 @@
         });
 
 
-        // --- Message Modal Logic ---
+        // --- Message Modal Logic (Used for Profiles and Documents now) ---
         const sbLink = document.getElementById('sb-profile-link');
         const advisorLink = document.getElementById('advisor-profile-link');
+
         const modal = document.getElementById('message-modal');
         const closeModalButton = document.getElementById('close-modal-button');
         const modalContentArea = document.getElementById('modal-content-area'); 
 
-        // =========================================================================
         // ADVISOR PROFILE DATA
-        // =========================================================================
         const advisorImageURL = "https://raw.githubusercontent.com/sismodelunclub/SISMUNC/refs/heads/main/advisor.jpg"; 
         const advisorName = "Afridah Ishrat Shahrin"; 
         const advisorTitle = "Club Advisor"; 
         const advisorBio = "Afridah Ishrat Shahrin, a dedicated BUP scholar, serves as Club Advisor. She brings formidable expertise, having mastered MUN mechanics and served as Director/Vice Chair for over twenty national conferences, including UNHRC, ECOFIN, and CTBTO. Her comprehensive strategic insight will guide the club to a results-driven environment."; 
-        
-        // DEBUG: Log the data to confirm it's loaded in the environment
-        console.log("Advisor Data Loaded:", { name: advisorName, title: advisorTitle, image: advisorImageURL });
 
-        // =========================================================================
 
-        // Function to display the modal
-        function showModal(event) {
+        /**
+         * Generic function to show the modal with content.
+         * @param {string} content - The HTML string to inject.
+         */
+        function showModalWithContent(content) {
+            modalContentArea.innerHTML = content;
+            modal.classList.remove('hidden');
+        }
+
+        // Function to hide the modal
+        function hideModal() {
+            modal.classList.add('hidden');
+            // Clear content when closing
+            modalContentArea.innerHTML = ''; 
+        }
+
+        // Function to handle link clicks and determine modal content
+        function handleLinkClick(event) {
             event.preventDefault();
             
-            let contentToSet = '';
+            const targetId = event.currentTarget.id;
 
-            // Check which link was clicked
-            if (event.currentTarget.id === 'advisor-profile-link') {
-                // Set the detailed profile content for the Advisor
-                contentToSet = `
+            // 1. Advisor Profile
+            if (targetId === 'advisor-profile-link') {
+                const profileContent = `
                     <div class="flex flex-col items-center text-center px-2 py-4">
                         <img src="${advisorImageURL}" 
                              onerror="this.onerror=null; this.src='https://placehold.co/150x150/b02326/ffffff?text=Image+Error';" 
@@ -393,31 +425,22 @@
                         <p class="text-gray-700 text-base text-left px-2">${advisorBio}</p>
                     </div>
                 `;
-            } else if (event.currentTarget.id === 'sb-profile-link') {
-                // Generic "coming soon" content for the Secretariat Board
-                contentToSet = `
-                    <h3 class="text-xl font-bold text-mun-red-primary mb-4">Secretariat Profiles</h3>
-                    <p class="text-gray-700 text-lg">The student leader profiles for the Secretariat Board are coming soon. Check back shortly!</p>
+                showModalWithContent(profileContent);
+
+            // 2. Secretariat Board (Placeholder)
+            } else if (targetId === 'sb-profile-link') {
+                const sbContent = `
+                    <h3 class="text-2xl font-bold text-mun-red-primary mb-4 text-center">Secretariat Profiles</h3>
+                    <p class="text-gray-700 text-lg text-center">The student leader profiles for the Secretariat Board are **coming soon**. Check back shortly!</p>
                 `;
+                showModalWithContent(sbContent);
             }
-            
-            // Inject the content into the target area
-            modalContentArea.innerHTML = contentToSet;
-            
-            // Show the modal
-            modal.classList.remove('hidden');
+            // Note: Code of Conduct and Club Charter links are now handled via direct HTML hrefs.
         }
 
-        // Function to hide the modal
-        function hideModal() {
-            modal.classList.add('hidden');
-            // Clear content when closing (optional but cleaner)
-            modalContentArea.innerHTML = ''; 
-        }
-
-        // Event listeners for the profile links
-        sbLink.addEventListener('click', showModal);
-        advisorLink.addEventListener('click', showModal);
+        // Event listeners for modal links
+        sbLink.addEventListener('click', handleLinkClick);
+        advisorLink.addEventListener('click', handleLinkClick);
         
         // Event listener for the close button
         closeModalButton.addEventListener('click', hideModal);
@@ -432,9 +455,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
